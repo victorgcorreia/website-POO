@@ -1,0 +1,86 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.jumpotron {
+    margin-top: 0px !important;
+}
+
+.center {
+  text-align: center;
+  background-image: url(https://img.wallpapersafari.com/desktop/1920/1080/81/58/trkJUw.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+  font-family: 'Exo', sans-serif;
+  font-weight: 200;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 0 4px white;
+}
+
+.nome1 {
+    color: black !important;
+    text-shadow: 0 0 4px white !important;
+    -webkit-font-smoothing: none !important;
+}
+
+.nome2 {
+    color: #5379fa !important;
+    text-shadow: 0 0 3px white !important;
+    -webkit-font-smoothing: none !important;
+}
+
+/* home page */
+* {margin: 0; padding: 0;}
+
+.div_home {
+  margin: 20px;
+}
+
+.ul_home {
+  list-style-type: none;
+  width: 100%;
+}
+
+.h3_home {
+        padding: 0px !important;
+        margin: 4px !important;
+        font-weight: bold;
+        font-family: 'Exo', sans-serif;
+        font-size: 27px;
+}
+
+.img_home {
+  float: left;
+  margin: 0 15px 0 0;
+  padding: 60px 300px 60px 60px;
+  text-align: center;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+}
+
+.p_home {
+    padding: 0px;
+    font-weight: 500;
+    font-family: 'Exo', sans-serif;
+    font-size: 14px;
+}
+
+.li_home {
+  padding: 10px;
+  overflow: auto;
+}
+
+.li_home:hover {
+  background: #eee;
+  cursor: pointer;
+}

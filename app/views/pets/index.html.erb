@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag    'pages' %>
+<h1>Pets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Owner</th>
+      <th>Available</th>
+      <th>Age</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.description %></td>
+        <td><%= pet.user.email %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.available %></td>
+        <td><%= pet.user.username %>
+        <td><%= link_to 'Show', pet %></td>
+        <% if current_user && current_user.email == pet.owner %>
+            <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+            <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet', new_pet_path %>
+<%= link_to 'Home',  home_path %>

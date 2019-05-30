@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag 'pages', media: 'all' %>
+<div class="center jumbotron"></br><h1><span nome3>Welcome to </span><span class="nome1">Pet</span><span class="nome2">Center</span></h1></br></div>
+
+<div class="div_home">
+    <ul class="ul_home">
+        <% @pets.each do |pet| %>
+        <%= link_to pet do %>
+            <li class="li_home">
+              <img src="" class="img_home">
+        <% end %>
+                <h3 class="h3_home"><%= pet.name %></h3>
+                <p class="p_home">
+                  <td><%= pet.description %></td></br>
+                  <td><%= pet.details %></td></br></br>
+                  <td>e-mail: <%= pet.user.email %> | phone: <%= pet.user.phone %></td>
+                  <td><%= pet.age %></td>
+                  <td><%= pet.available %></td>
+                  <td><%= pet.user.username %>
+                  <td><%= link_to 'Show', pet %></td>
+                  <% if current_user && current_user.email == pet.owner %>
+                      <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+                      <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
+            </li>
+        <% end %></p>
+
+    <li class="li_home">
+      <img src="http://lorempixum.com/100/100/nature/2" >
+      <h3>Paradise Found</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li class="li_home">
+      <img src="http://lorempixum.com/100/100/nature/3" >
+      <h3>Smoke On The Water</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li class="li_home">
+      <img src="http://lorempixum.com/100/100/nature/4" >
+      <h3>Headline</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+  </ul>
+</div>

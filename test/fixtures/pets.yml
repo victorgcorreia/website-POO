@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  details: MyText
+  image: MyString
+  link: MyString
+  owner: MyString
+  available: false
+  age: 1
+  user: one
+
+two:
+  name: MyString
+  description: MyString
+  details: MyText
+  image: MyString
+  link: MyString
+  owner: MyString
+  available: false
+  age: 1
+  user: two

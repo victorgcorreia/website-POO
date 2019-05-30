@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag 'pages' %>
+<p>
+  <strong>Name:</strong>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pet.description %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @pet.details %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @pet.image %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @pet.link %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @pet.user %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @pet.available %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @pet.age %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pet.user.username %>
+</p>
+
+<% if current_user && current_user == @pet.user %>
+    <td><%= link_to 'Edit', edit_pet_path(@pet) %></td> |
+    <td><%= link_to 'Destroy', @pet, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
+<% end %>
+<%= link_to 'Back', pets_path %>

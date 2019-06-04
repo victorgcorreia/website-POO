@@ -1,12 +1,14 @@
 <%= stylesheet_link_tag 'pages' %>
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Name:</strong>
   <%= @pet.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @pet.description %>
+  <strong>Species:</strong>
+  <%= @pet.species %>
 </p>
 
 <p>
@@ -15,18 +17,13 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @pet.image %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @pet.link %>
+  <strong>Birthdate:</strong>
+  <%= @pet.birthdate %>
 </p>
 
 <p>
   <strong>Owner:</strong>
-  <%= @pet.user %>
+  <%= @pet.owner %>
 </p>
 
 <p>
@@ -35,17 +32,9 @@
 </p>
 
 <p>
-  <strong>Age:</strong>
-  <%= @pet.age %>
+  <strong>Volunteer:</strong>
+  <%= @pet.volunteer %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @pet.user.username %>
-</p>
-
-<% if current_user && current_user == @pet.user %>
-    <td><%= link_to 'Edit', edit_pet_path(@pet) %></td> |
-    <td><%= link_to 'Destroy', @pet, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
-<% end %>
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>

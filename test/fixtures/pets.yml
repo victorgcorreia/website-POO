@@ -2,22 +2,18 @@
 
 one:
   name: MyString
-  description: MyString
+  species: MyString
   details: MyText
-  image: MyString
-  link: MyString
-  owner: MyString
+  birthdate: 2019-05-30 01:45:09
+  owner: one
   available: false
-  age: 1
-  user: one
+  volunteer: one
 
 two:
   name: MyString
-  description: MyString
+  species: MyString
   details: MyText
-  image: MyString
-  link: MyString
-  owner: MyString
+  birthdate: 2019-05-30 01:45:09
+  owner: two
   available: false
-  age: 1
-  user: two
+  volunteer: two

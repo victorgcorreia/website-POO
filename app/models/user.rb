@@ -1,9 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,# :confirmable,
          :recoverable, :rememberable, :validatable
-  has_many :pets, dependent: :destroy
+  validates :name, :role, presence: { message: "Campo obrigatório" }
+  has_one :owner
+  has_one :user
+  has_many :pets
 
   def username
       return self.email.split('@')[0].capitalize

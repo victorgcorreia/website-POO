@@ -1,11 +1,10 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.where.not(available: false)
+    @pets = Pet.all
   end
 
   # GET /pets/1
@@ -26,8 +25,6 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
-    @pet.user = current_user
-    @pet.owner = current_user
 
     respond_to do |format|
       if @pet.save
@@ -72,7 +69,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :description, :details, :image, :link, :available, :age)
+      params.require(:pet).permit(:name, :species, :details, :birthdate, :owner_id, :available, :volunteer_id)
     end
-
 end

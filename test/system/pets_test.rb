@@ -14,15 +14,13 @@ class PetsTest < ApplicationSystemTestCase
     visit pets_url
     click_on "New Pet"
 
-    fill_in "Age", with: @pet.age
     check "Available" if @pet.available
-    fill_in "Description", with: @pet.description
+    fill_in "Birthdate", with: @pet.birthdate
     fill_in "Details", with: @pet.details
-    fill_in "Image", with: @pet.image
-    fill_in "Link", with: @pet.link
     fill_in "Name", with: @pet.name
-    fill_in "Owner", with: @pet.owner
-    fill_in "User", with: @pet.user_id
+    fill_in "Owner", with: @pet.owner_id
+    fill_in "Species", with: @pet.species
+    fill_in "Volunteer", with: @pet.volunteer_id
     click_on "Create Pet"
 
     assert_text "Pet was successfully created"
@@ -33,15 +31,13 @@ class PetsTest < ApplicationSystemTestCase
     visit pets_url
     click_on "Edit", match: :first
 
-    fill_in "Age", with: @pet.age
     check "Available" if @pet.available
-    fill_in "Description", with: @pet.description
+    fill_in "Birthdate", with: @pet.birthdate
     fill_in "Details", with: @pet.details
-    fill_in "Image", with: @pet.image
-    fill_in "Link", with: @pet.link
     fill_in "Name", with: @pet.name
-    fill_in "Owner", with: @pet.owner
-    fill_in "User", with: @pet.user_id
+    fill_in "Owner", with: @pet.owner_id
+    fill_in "Species", with: @pet.species
+    fill_in "Volunteer", with: @pet.volunteer_id
     click_on "Update Pet"
 
     assert_text "Pet was successfully updated"

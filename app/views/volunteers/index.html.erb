@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'pages' %>
 <p id="notice"><%= notice %></p>
 
 <h1>Volunteers</h1>
@@ -5,11 +6,12 @@
 <table>
   <thead>
     <tr>
-      <th>Cpf</th>
-      <th>Address</th>
+      <th>Name</th>
+      <!-- <th>Cpf</th>
+      <th>Address</th> -->
       <th>Tel</th>
       <th>Birthdate</th>
-      <th>User</th>
+      <!-- <th>User</th> -->
       <th>Bio</th>
       <th colspan="3"></th>
     </tr>
@@ -18,20 +20,20 @@
   <tbody>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.cpf %></td>
-        <td><%= volunteer.address %></td>
+        <td><%= volunteer.name %></td>
+        <!-- <td><%= volunteer.cpf %></td>
+        <td><%= volunteer.address %></td> -->
         <td><%= volunteer.tel %></td>
-        <td><%= volunteer.birthdate %></td>
-        <td><%= volunteer.user %></td>
+        <td><%= volunteer.birthdate.to_date %></td>
+        <!-- <td><%= volunteer.user %></td> -->
         <td><%= volunteer.bio %></td>
         <td><%= link_to 'Show', volunteer %></td>
-        <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
-        <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user == volunteer.user %>
+            <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Volunteer', new_volunteer_path %>

@@ -1,6 +1,10 @@
 <%= stylesheet_link_tag 'pages' %>
-<% if current_user %>
-    <h1>Homepage for users</h1>
+<% if current_user && current_user.role == 2 %>
+    <h1>Homepage for Owners</h1>
+<% elsif current_user && current_user.role == 3 %>
+    <h1>Homepage for Volunteers</h1>
+
 <% else %>
+
     <h1>You have to be logged in to view this page</h1>
 <% end %>

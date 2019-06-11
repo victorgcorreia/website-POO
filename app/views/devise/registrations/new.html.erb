@@ -1,5 +1,29 @@
 <%= stylesheet_link_tag 'pages' %>
-<h2>Sign up</h2></br>
+<%= stylesheet_link_tag 'sign_up' %>
+<%= javascript_include_tag 'sign_up/sign_up' %>
+<h2 class="title">Sign up</h2></br>
+<script>
+    function img(x) {
+        if (x == 0) {
+        document.getElementById('volunteers').style.display='block';
+        document.getElementById('owners').style.display='none';
+    }
+        else {
+        document.getElementById('volunteers').style.display='none';
+        document.getElementById('owners').style.display='block';
+    }
+        return;
+    }
+    function noop() {};
+
+    function img2() {
+        img2 = noop;
+        document.getElementById('volunteers').style.display='none';
+        document.getElementById('owners').style.display='block';
+        return;
+    }
+</script>
+<body onMouseOver="img2()">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -29,13 +53,32 @@
   </div>
 
   <div class="form-check form-group">
-    <%= f.radio_button :role, 2, :class => 'form-check-input', :type => "radio", :checked => (1 == 1) %> Owner
-    <%= f.radio_button :role, 3, :class => 'form-check-input', :type => "radio" %> Volunteer
+    <%= f.radio_button :role, 2, :class => 'form-check-input', :type => "radio", checked: 'checked', onClick: "img(1)" %> Owner
+    <div class="reveal-if-active">
+       <div id='owners'>
+         <%= f.fields_for :owner, @user.build_owner do |owner_form| %>
+           <%= render 'owner_fields', :f => owner_form %>
+         <% end %>
+         <div class='links'>
+         </div>
+       </div>
+    </div>
+
+    <%= f.radio_button :role, 3, :class => 'form-check-input', :type => "radio", onClick: "img(0)" %> Volunteer
+    <div class="reveal-if-active">
+       <div id='volunteers'>
+         <%= f.fields_for :volunteer, @user.build_volunteer do |volunteer_form| %>
+           <%= render 'volunteer_fields', :f => volunteer_form %>
+         <% end %>
+         <div class='links'>
+         </div>
+       </div>
+    </div>
   </div>
 
   <div class="actions form-group">
     <%= f.submit "Sign up", type: "submit", class: "btn btn-primary" %>
   </div>
 <% end %>
-
+</body>
 <%= render "devise/shared/links" %>

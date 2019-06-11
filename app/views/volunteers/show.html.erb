@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'pages' %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,12 +18,12 @@
 
 <p>
   <strong>Birthdate:</strong>
-  <%= @volunteer.birthdate %>
+  <%= @volunteer.birthdate.to_date %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @volunteer.user %>
+  <%= @volunteer.user.name %>
 </p>
 
 <p>
@@ -30,5 +31,7 @@
   <%= @volunteer.bio %>
 </p>
 
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<% if current_user == @volunteer.user %>
+    <%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<% end %>
 <%= link_to 'Back', volunteers_path %>

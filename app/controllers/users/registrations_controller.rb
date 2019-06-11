@@ -8,19 +8,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     @user = User.new
-    puts("Deu certo caralho")
+    if @user.role == 2
+        @owner = @user.owners.build
+    elsif @user.role == 3
+        @volunteer = @user.volunteers.build
+    end
+    puts("Deu certo")
   end
 
   # POST /resource
   # class Users::RegistrationsController < Devise::RegistrationsController
   def create
       super do |resource|
-         if @user.role == 2
-           @owner = Owner.create(user: @user)
-           redirect_to owners_update_path #path não existe -> falta rota?
-         elsif @user.role == 3
-           @volunteer = Volunteer.create(user: @user)
-         end
+
+         # if @user.role == 2
+         #   @owner = Owner.create(user: @user)
+         # #  redirect_to owners_update_path #path não existe -> falta rota?
+         # elsif @user.role == 3
+         #   @volunteer = Volunteer.create(user: @user)
+         # end
          puts "this works"
       end
   end

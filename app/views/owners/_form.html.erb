@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag 'sign_up' %>
 <%= form_with(model: owner, local: true) do |form| %>
   <% if owner.errors.any? %>
     <div id="error_explanation">
@@ -11,37 +12,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
+    <%= form.text_field :cpf, autocomplete: "cpf", type: "cpf", class: "form-control", placeholder: "Valid CPF" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, autocomplete: "address", type: "address", class: "form-control", placeholder: "Home address" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tel %>
-    <%= form.text_field :tel %>
+    <%= form.text_field :tel, autocomplete: "tel", type: "tel", class: "form-control", placeholder: "Phone number" %>
   </div>
 
-  <div class="field">
-    <%= form.label :birthdate %>
-    <%= form.datetime_select :birthdate %>
+  <div class="form-group">
+    <%= form.label :birthdate %></br>
+    <%= form.date_select :birthdate, {}, { class: "form-control date-select" } %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :bio %>
-    <%= form.text_area :bio %>
+    <%= form.text_area :bio, autocomplete: "bio", type: "bio", class: "form-control", placeholder: "Write about yourself!" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit "Save changes", type: "submit", class: "btn btn-primary" %>
   </div>
 <% end %>

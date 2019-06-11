@@ -16,7 +16,6 @@ Rails.application.routes.draw do
       get 'sign_up', to: 'users/registrations#new'
   end
 
-  get '/choose_role' => 'pages#choose_role', as: 'choose_role'
   get '/' => 'pages#home', as: 'home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

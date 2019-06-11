@@ -2,7 +2,9 @@
 
 Rails.application.config.assets.precompile += %w( login.css )
 Rails.application.config.assets.precompile += %w( pages.css )
+Rails.application.config.assets.precompile += %w( sign_up.css )
 Rails.application.config.assets.precompile += %w( application/application.css )
+Rails.application.config.assets.precompile += %w( sign_up/sign_up.js )
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'

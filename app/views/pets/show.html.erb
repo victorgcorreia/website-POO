@@ -18,12 +18,17 @@
 
 <p>
   <strong>Birthdate:</strong>
-  <%= @pet.birthdate %>
+  <%= @pet.birthdate.to_date %>
 </p>
 
 <p>
   <strong>Owner:</strong>
-  <%= @pet.owner %>
+  <%= @pet.owner.name %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @pet.owner.tel %>
 </p>
 
 <p>
@@ -31,10 +36,7 @@
   <%= @pet.available %>
 </p>
 
-<p>
-  <strong>Volunteer:</strong>
-  <%= @pet.volunteer %>
-</p>
-
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% if current_user == @pet.owner.user %>
+    <%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% end %>
 <%= link_to 'Back', pets_path %>

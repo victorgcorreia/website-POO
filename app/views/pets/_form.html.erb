@@ -11,42 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, autocomplete: "name", type: "name", class: "form-control", placeholder: "Pet name" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :species %>
-    <%= form.text_field :species %>
+    <%= form.text_field :species, autocomplete: "species", type: "species", class: "form-control", placeholder: "Cat, dog, bird?" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :details %>
-    <%= form.text_area :details %>
+    <%= form.text_area :details, autocomplete: "cpf", type: "cpf", class: "form-control", placeholder: "Write relevant information about your pet!" %>
   </div>
 
-  <div class="field">
-    <%= form.label :birthdate %>
-    <%= form.datetime_select :birthdate %>
+  <div class="form-group">
+    <%= form.label :birthdate %></br>
+    <%= form.date_select :birthdate, {}, { class: "form-control date-select" } %>
   </div>
 
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
+      <%= form.check_box :available, {checked: true} %>
     <%= form.label :available %>
-    <%= form.check_box :available %>
   </div>
 
-  <div class="field">
-    <%= form.label :volunteer_id %>
-    <%= form.text_field :volunteer_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit "Create/Update pet", type: "submit", class: "btn btn-primary" %>
   </div>
 <% end %>

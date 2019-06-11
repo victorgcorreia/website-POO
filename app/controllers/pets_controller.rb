@@ -25,6 +25,8 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
+    @pet.owner_id = current_user.owner.id
+    @pet.volunteer_id = nil
 
     respond_to do |format|
       if @pet.save

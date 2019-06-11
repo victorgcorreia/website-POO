@@ -16,24 +16,12 @@ class ApplicationController < ActionController::Base
        end
     end
 
-    # def after_sign_up_path_for(resource_or_scope)
-    #    if current_user.role == 1
-    #      pets_path
-    #    elsif current_user.role == 2
-    #      owners_path
-    #    elsif current_user.role == 3
-    #      volunteers_path
-    #    else
-    #      '/'
-    #    end
-    # end
-
     protected
 
     def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :role, :email, :password])
-        devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
-        devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :remember_me])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :role, :email, :password, owner_attributes: [:id, :cpf, :address, :tel, :birthdate, :bio, :_destroy], volunteer_attributes: [:id, :cpf, :address, :tel, :birthdate, :bio, :_destroy]])
+        devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me, owner_attributes: [:id, :cpf, :address, :tel, :birthdate, :bio, :_destroy], volunteer_attributes: [:id, :cpf, :address, :tel, :birthdate, :bio, :_destroy]])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :remember_me, owner_attributes: [:id, :cpf, :address, :tel, :birthdate, :bio, :_destroy], volunteer_attributes: [:id, :cpf, :address, :tel, :birthdate, :bio, :_destroy]])
     end
 
 

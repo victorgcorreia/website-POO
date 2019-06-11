@@ -1,14 +1,27 @@
+<%= stylesheet_link_tag 'pages' %>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Cpf:</strong>
-  <%= @owner.cpf %>
+    <strong>Name:</strong>
+    <%= @owner.name %>
 </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @owner.address %>
-</p>
+<% if current_user == @owner.user %>
+    <p>
+      <strong>Cpf:</strong>
+      <%= @owner.cpf %>
+    </p>
+
+    <p>
+        <strong>Birthdate:</strong>
+        <%= @owner.birthdate.to_date %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @owner.address %>
+    </p>
+<% end %>
 
 <p>
   <strong>Tel:</strong>
@@ -16,19 +29,10 @@
 </p>
 
 <p>
-  <strong>Birthdate:</strong>
-  <%= @owner.birthdate %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @owner.user %>
-</p>
-
-<p>
   <strong>Bio:</strong>
   <%= @owner.bio %>
 </p>
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<% if current_user == @owner.user %>
+    <%= link_to 'Edit', edit_owner_path(@owner) %> |
+<% end %>
 <%= link_to 'Back', owners_path %>

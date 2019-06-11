@@ -1,0 +1,32 @@
+.date-select {
+    display: inline-block !important;
+    width: 30% !important;
+}
+
+.title {
+    text-align: center;
+    margin-top: 100px auto;
+}
+
+.show_back {
+    margin-left: 28%;
+    margin-top: -1%;
+}
+
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  > div {
+    margin: 0 0 20px 0;
+    label {
+      font-weight: bold;
+    }
+    > div {
+      padding: 5px;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
        if current_user.role == 1
          pets_path
        elsif current_user.role == 2
-         owners_path
+         users_path
        elsif current_user.role == 3
-         volunteers_path
+         users_path
        else
          '/'
        end

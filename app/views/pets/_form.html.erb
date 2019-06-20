@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  </div class="form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, autocomplete: "name", type: "name", class: "form-control", placeholder: "Pet name" %>

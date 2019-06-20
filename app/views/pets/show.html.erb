@@ -1,6 +1,10 @@
 <%= stylesheet_link_tag 'pages' %>
 <p id="notice"><%= notice %></p>
 
+</div>
+  <%= link_to image_tag(@pet.image, style: 'width:400px'), pets_path %>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @pet.name %>

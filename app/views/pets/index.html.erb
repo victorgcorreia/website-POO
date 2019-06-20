@@ -7,10 +7,15 @@
   <thead>
     <tr>
       <th>Name</th>
+      <td class="padded"></td>
       <th>Species</th>
+      <td class="padded"></td>
       <th>Details</th>
+      <td class="padded"></td>
       <th>Birthdate</th>
+      <td class="padded"></td>
       <th>Owner</th>
+      <td class="padded"></td>
       <th>Available</th>
       <th colspan="3"></th>
     </tr>
@@ -20,18 +25,26 @@
     <% @pets.each do |pet| %>
       <tr>
         <td><%= pet.name %></td>
+        <td class="padded"></td>
         <td><%= pet.species %></td>
+        <td class="padded"></td>
         <td><%= pet.details %></td>
+        <td class="padded"></td>
         <td><%= pet.birthdate.to_date %></td>
+        <td class="padded"></td>
         <td><%= pet.owner.name %></td>
+        <td class="padded"></td>
         <td><%= pet.available %></td>
+        <td class="padded"></td>
         <td><%= link_to 'Show', pet %></td>
         <% if current_user && current_user.id == pet.owner.user.id %>
+        <td class="padded1"></td>
             <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+             <td class="padded1"></td>
             <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-    <% end %>
+    <% end %> 
   </tbody>
 </table>
 

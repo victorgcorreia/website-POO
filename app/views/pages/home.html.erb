@@ -6,7 +6,7 @@
         <% @pets.each do |pet| %>
         <%= link_to pet do %>
             <li class="li_home">
-              <img src="" class="img_home">
+                <%= link_to image_tag(pet.image, style: 'width:400px'), pets_path %>
         <% end %>
                 <h3 class="h3_home"><%= pet.name %></h3>
                 <p class="p_home">

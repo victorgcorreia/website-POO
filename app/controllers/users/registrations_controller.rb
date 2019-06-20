@@ -81,7 +81,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
-  #   super(resource)
+  #   if current_user.role == 2
+  #       redirect_to users_path
+  #   else redirect_to home_path
+  # end
+
+  # def after_sign_in_path_for(user)
+  #   origin_path = session[:origin_path]
+  #   clear_origin_path
+  #   if origin_path.present?
+  #     origin_path
+  #   else
+  #     params[:target].presence || default_redirect_path
+  #   end
   # end
 
   # The path used after sign up for inactive accounts.

@@ -27,14 +27,20 @@
 }
 
 .nome1 {
-    color: black !important;
-    text-shadow: 0 0 4px white !important;
+    color: white !important;
+    text-shadow: 0 0 4px black !important;
     -webkit-font-smoothing: none !important;
 }
 
 .nome2 {
     color: #5379fa !important;
-    text-shadow: 0 0 3px white !important;
+    text-shadow: 0 0 3px black !important;
+    -webkit-font-smoothing: none !important;
+}
+
+.nome3 {
+    color: white !important;
+    text-shadow: 0 0 3px black !important;
     -webkit-font-smoothing: none !important;
 }
 

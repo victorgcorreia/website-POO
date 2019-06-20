@@ -33,7 +33,7 @@
 
   <div class="form-group">
     <%= form.label :birthdate %></br>
-    <%= form.date_select :birthdate, {}, { class: "form-control date-select" } %>
+    <%= form.date_select :birthdate, {:start_year => 1920, :end_year => Date.today.year}, { class: "form-control date-select" } %>
   </div>
 
   <div class="form-group">

@@ -5,15 +5,9 @@
     <ul class="ul_home">
         <% @pets.each do |pet| %>
             <li class="li_home">
-<<<<<<< HEAD
-              <%= link_to image_tag(pet.image, style:"padding: 0 15px; float: left;" 'width:400px'), pet_path(pet) %>
-=======
-
                 <div class="div_foto">
                   <%= link_to image_tag(pet.image, :class => "foto"), pet_path(pet) %>
                 </div>
-
->>>>>>> b826b54d428dbb19e8db5bdc211ee308b91ba0ab
                 <h3 class="h3_home"><%= pet.name %></h3>
                 <p class="p_home">
                   <td><%= pet.details %></td></br></br>

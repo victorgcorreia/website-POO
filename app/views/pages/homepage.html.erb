@@ -1,24 +1,8 @@
 <%= stylesheet_link_tag 'pages' %>
 <% if current_user && current_user.role == 2 %>
+    <h1 class="homepage_title">Homepage for Owners</h1>
     <h1 class="homepage_title">Here are all your registered pets!</h1></br>
     <% @pets.each do |pet| %>
-<<<<<<< HEAD
-        <li class="li_home">
-            <%= link_to image_tag(pet.image, style:"padding: 0 15px; float: left;" 'width:500px'), pet_path(pet)%>
-            <h3 class="h3_home"><%= pet.name %></h3>
-            <p class="p_home">
-              <td><%= pet.details %></td></br></br>
-              <td><%= pet.birthdate.to_date %></td></br>
-              <td>Dono: <%= pet.owner.name %></br>
-              <td>e-mail: <%= pet.owner.user.email %> | phone: <%= pet.owner.tel %></td></br>
-              <td><%= link_to 'Show', pet %></td>
-              <% if current_user && current_user == pet.owner.user %>
-                  <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-                  <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-        </li>
-    <% end %></p>
-=======
         <% if current_user && current_user == pet.owner.user %>
             <li class="li_home">
                 <div class="div_foto">
@@ -37,15 +21,44 @@
             </li>
         </p>
         <% end %>
->>>>>>> b826b54d428dbb19e8db5bdc211ee308b91ba0ab
 <% elsif current_user && current_user.role == 3 %>
-    <h1>Homepage for Volunteers</h1>
-    <%= link_to image_tag("/images/happydog.jpg", style:"padding: 0 15px; float: left;" 'width:400px'), pets_path %>
-    <h3>Obrigado por ajudar a nossa causa!</h3>
-    <h4>Na página Pets você pode encontrar uma lista com os nossos amiguinhos que esperam por um lar temporário!<h4>
+    <h1 class="homepage_title">Homepage for Volunteers</h1>
     <br>
-    <h3>Algumas Dicas sobre o cuidado:<h3>
-
+    <%= link_to image_tag("giphy.gif", style:"padding: 0 15px; float: left;" 'width:400px'), pets_path %>
+    <h2>Obrigado por ajudar a nossa causa!</h2>
+    <h4>Na página Pets você pode encontrar uma lista com os nossos amiguinhos que esperam por um lar temporário!
+      Caso haja interesse e disponibilidade, entre em contato com o Dono do pet para mais informações!<h4>
+    <br>
+    <br>
+    <h2>Algumas Dicas sobre os cuidados com o Pet:<h2>
+    <br>
+    <h3>Acompanhamento veterinário<h3>
+    <h4>  Assim como é natural que as crianças tenham acompanhamento pediátrico, os pets também precisam de um "médico de confiança". As visitas ao médico veterinário devem ser parte da rotina de saúde do pet, para que seja possível prevenir ou até detectar precocemente doenças que possam ameaçar sua saúde e seu bem-estar. Por isso, é importante que desde cedo a família busque orientação para encontrar uma clínica ou um profissional que possa assistir ao animal sempre que necessário.<h4>
+    <br>
+    <h3>Alimentação<h3>
+    <%= link_to image_tag("eating.jpg", style:"padding: 0 15px; float: right;" 'width:400px'), pets_path %>
+    <h4>  Os animais possuem exigências nutricionais específicas para cada fase da vida. Os filhotes devem comer alimentos especialmente elaborados para eles até o final da fase de crescimento, que pode variar de acordo com o porte entre as diferentes raças. A quantidade total de alimento a ser oferecida por dia deve ser calculada, e nos primeiros meses é importante dividi-la em várias porções ao longo do dia, com o tempo os intervalos devem ser aumentados de forma que o cão se alimente 2 ou 3 vezes. Quando uma ração balanceada de boa qualidade é utilizada, não há necessidade de administrar nenhum outro tipo de alimento, é recomendado evitar comidas caseiras, pães e bolachas, pois podem atrapalhar o apetite do filhote e desequilibrar a quantidade de nutrientes ingerida.<h4><h4>A água deve sempre ser deixada à vontade, e no caso de gatos a ingestão de água é ainda mais importante, e após adultos alguns podem ter predispoisição a apresentar problemas urinários. Como gatos gostam da água o mais fresca possível, para incentivar o consumo é interessante utilizar recipientes grandes, de preferência mais de um espalhado pela casa ou utilizar algum bebedouro com água corrente.<h4>
+    <br>
+    <%= link_to image_tag("bathing.jpg", style:"margin-top: 40px; padding: 0 15px; float: left;" 'width:400px'), pets_path %>
+    <h3 style = "margin-top: -10px">Higiene de rotina<h3>
+    <h4>O banho é fundamental, afinal cuidando da higiene deles, estaremos zelando pela nossa saúde também. A frequência de banho varia de acordo com a necessidade de cada raça, algumas precisam de banhos semanais, outras mensais. De modo geral não é recomendado dar banhos com um intervalo muito curto, duas vezes por semana por exemplo, a não ser que o pet esteja realizando algum tratamento, pois pode ressecar muito a pele e os pelos, predispondo a doenças.<h4><h4>Banhos em filhotes precisam de maior cuidado e atenção. É importante não levá-los a locais que possam ter contato com outros cães antes que tenham tomado todas as vacinas, pois podem adquirir doenças. Antes do primeiro banho converse com o veterinário que está acompanhando o seu filhote para saber se o momento é adequado ao banho. Existem estabelecimentos especializados, mas se optar por dar banho em casa, faça com que esse momento seja o mais agradável possível, com carinho, atenção e paciência, pois os filhotes não estão habituados e se assustam com o barulho dos secadores. Alternativamente pode ser realizado o "banho a seco", que é a limpeza da pele e dos pelos com produtos especiais destinados a este fim, sem a necessidade de imergir o cãozinho na água, pode ser realizado em filhotes muito novinhos ou em raças que não precisam de banhos frequentes.<h4>
+    <%= link_to image_tag("hygiene.jpg", style:"margin-right: 20px; margin-top: 40px; padding: 0 15px; float: right;" 'width:400px'), pets_path %>
+    <h3>Dicas para a higiene em casa:<h3>
+    <h4>
+      <ul style = "margin-left: 20px">
+        <li>Separe utensílios para serem exclusivos do pet, como toalhas e escovas;</li>
+        <li>Utilize água morna, mais para fria;</li>
+        <li>Cuidado para que ele não sinta frio durante o banho, pois pode ficar doente;</li>
+        <li>Use sempre produtos específicos para animais, para garantir pele e pelos bonitos e saudáveis;</li>
+        <li>Proteja sempre os olhos e os ouvidos do animal para que não entre água e sabão;</li>
+        <li>Seque primeiro com a toalha e depois com o secador, mantendo-o distante do pelo e cuidado com a temperatura para não queimar seu cãozinho, aproveite para penteá-lo;</li>
+        <li>A frequência de escovação dos pelos varia de acordo com o tipo de pelo. Os mais peludos precisam ser escovados com maior frequência, no mínimo semanalmente. Além de ser uma expressão de carinho, a escovação remove os pelos velhos, desembaraça, ativa a circulação e também remove restos de pele morta. Crie esse hábito desde cedo para que o animal se acostume;</li>
+        <li>Limpe com cuidado a região dos olhos, utilize algodão seco ou embebido em água filtrada. Nunca utilize qualquer produto ou colírios sem consultar o médico veterinário;</li>
+        <li>Limpeza da orelha deve ser feita com cuidado, limpe somente a parte mais externa, se houver secreção pode utilizar um produto específico para este fim, mas nunca utilize cotonetes ou qualquer objeto dentro do conduto auditivo, pois além do risco de machucar o cãozinho, você pode acidentalmente empurrar a secreção para o fundo predispondo a infecções;</li>
+        <li>Escove os dentes do seu animal, existem escovas e pastas específicas para cães, as pastas para humanos podem intoxicá-los;</li>
+        <li>As unhas devem ser cortadas sempre por um profissional, pois precisam de um cortador específico.</li>
+      </ul>
+    <h4>
 
 <% else %>
     <h1>You have to be logged in to view this page</h1>

@@ -12,7 +12,7 @@
       <td class="padded"></td>
       <th>Details</th>
       <td class="padded"></td>
-      <th>Birthdate</th>
+      <th>Age</th>
       <td class="padded"></td>
       <th>Owner</th>
       <td class="padded"></td>
@@ -30,7 +30,7 @@
         <td class="padded"></td>
         <td><%= pet.details %></td>
         <td class="padded"></td>
-        <td><%= pet.birthdate.to_date %></td>
+        <td><%= pet.idade %></td>
         <td class="padded"></td>
         <td><%= pet.owner.name %></td>
         <td class="padded"></td>
@@ -44,7 +44,7 @@
             <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-    <% end %> 
+    <% end %>
   </tbody>
 </table>
 

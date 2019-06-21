@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag 'pages' %>
 <p id="notice"><%= notice %></p>
 
-<div>
-  <%= image_tag(@pet.image, style:"padding: 0 15px; float: left;" 'width:500px')%>
+<div class="div_foto">
+  <%= image_tag(@pet.image, :class => "foto")%>
 </div>
 
 <p>
@@ -21,8 +21,8 @@
 </p>
 
 <p>
-  <strong>Birthdate:</strong>
-  <%= @pet.birthdate.to_date %>
+  <strong>Age:</strong>
+  <%= @pet.idade %> years
 </p>
 
 <p>

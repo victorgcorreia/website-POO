@@ -107,3 +107,28 @@
 .padded1 {
   padding-left: 5vh;
 }
+
+.div_foto {
+    height: 340px;
+    width: 300px;
+    overflow: auto;
+    margin-bottom: 100% auto !important;
+    margin-right: 10px;
+    max-width: 100% auto !important;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    padding: 0 15px !important;
+    float: left !important;
+}
+
+.foto {
+    padding: 0 15px !important;
+    float: left !important;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.homepage_title {
+    text-align: center;
+}

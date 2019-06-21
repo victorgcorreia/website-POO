@@ -10,35 +10,39 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to home_path do %>
-            <span class="logo_topo"><div id="logo">Pet</div><div id="logo2">Center</div></span>
-        <% end %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", home_path %></li>
-            <% if current_user %>
-                <li><%= link_to 'My page', users_path %></li>
+      <div class=”main-container”>
+        <header class="navbar navbar-fixed-top navbar-inverse">
+          <div class="container">
+            <%= link_to home_path do %>
+                <span class="logo_topo"><div id="logo">Pet</div><div id="logo2">Center</div></span>
             <% end %>
-            <li><%= link_to 'Pets', pets_path %></li>
-            <% if current_user %>
-                <% if current_user.role == 2 %>
-                <li><%= link_to 'New Pet', new_pet_path %></li>
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home", home_path %></li>
+                <% if current_user %>
+                    <li><%= link_to 'My page', users_path %></li>
                 <% end %>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-            <% else %>
-                <li><%= link_to 'Sign up', new_user_registration_path %></li>
-                <li><%= link_to 'Sign in', new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <div class="container">
-        <%= render 'layouts/alerts' %>
-        <%= yield %>
-        <%= render 'layouts/footer' %>
+                <li><%= link_to 'Pets', pets_path %></li>
+                <% if current_user %>
+                    <% if current_user.role == 2 %>
+                    <li><%= link_to 'New Pet', new_pet_path %></li>
+                    <% end %>
+                    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                    <li><%= link_to 'Sign in', new_user_session_path %></li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="container">
+            <%= render 'layouts/alerts' %>
+            <div class="site-content section">
+                <%= yield %>
+            </div>
+            <%= render 'layouts/footer' %>
+        </div>
     </div>
   </body>
 </html>

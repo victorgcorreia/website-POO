@@ -4,8 +4,7 @@ class PagesController < ApplicationController
   end
 
   def homepage
-      print("hellooo")
-      @pets = Pet.where.not(available: false)
+      @pets = Pet.all
   end
 
   def choose_role

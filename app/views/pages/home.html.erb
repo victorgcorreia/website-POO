@@ -6,12 +6,14 @@
         <% @pets.each do |pet| %>
             <li class="li_home">
 
-                <%= link_to image_tag(pet.image, style: "padding: 0 15px; float: left;" 'width:400px'), pet_path(pet) %>
+                <div class="div_foto">
+                  <%= link_to image_tag(pet.image, :class => "foto"), pet_path(pet) %>
+                </div>
 
                 <h3 class="h3_home"><%= pet.name %></h3>
                 <p class="p_home">
                   <td><%= pet.details %></td></br></br>
-                  <td><%= pet.birthdate.to_date %></td></br>
+                  <td><%= pet.idade %> years</td></br>
                   <td>Dono: <%= pet.owner.name %></br>
                   <td>e-mail: <%= pet.owner.user.email %> | phone: <%= pet.owner.tel %></td></br>
                   <td><%= link_to 'Show', pet %></td>

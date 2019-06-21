@@ -13,4 +13,8 @@ class Pet < ApplicationRecord
         return idade
     end
 
+    def idade_mes
+        
+        return (Date.today.month - self.birthdate.month)%12
+    end
 end

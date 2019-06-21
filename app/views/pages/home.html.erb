@@ -13,7 +13,7 @@
                 <h3 class="h3_home"><%= pet.name %></h3>
                 <p class="p_home">
                   <td><%= pet.details %></td></br></br>
-                  <td><%= pet.idade %> years</td></br>
+                  <td><%= pet.idade %> years and <%= pet.idade_mes %> months</td></br>
                   <td>Dono: <%= pet.owner.name %></br>
                   <td>e-mail: <%= pet.owner.user.email %> | phone: <%= pet.owner.tel %></td></br>
                   <td><%= link_to 'Show', pet %></td>

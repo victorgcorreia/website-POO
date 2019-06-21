@@ -3,7 +3,7 @@
     <h1>Homepage for Owners</h1>
     <% @pets.each do |pet| %>
         <li class="li_home">
-            <%= link_to image_tag(pet.image, style: 'width:400px'), pet_path(pet) %>
+            <%= link_to image_tag(pet.image, style:"padding: 0 15px; float: left;" 'width:500px'), pet_path(pet)%>
             <h3 class="h3_home"><%= pet.name %></h3>
             <p class="p_home">
               <td><%= pet.details %></td></br></br>
@@ -19,6 +19,12 @@
     <% end %></p>
 <% elsif current_user && current_user.role == 3 %>
     <h1>Homepage for Volunteers</h1>
+    <%= link_to image_tag("/images/happydog.jpg", style:"padding: 0 15px; float: left;" 'width:400px'), pets_path %>
+    <h3>Obrigado por ajudar a nossa causa!</h3>
+    <h4>Na página Pets você pode encontrar uma lista com os nossos amiguinhos que esperam por um lar temporário!<h4>
+    <br>
+    <h3>Algumas Dicas sobre o cuidado:<h3>
+
 
 <% else %>
     <h1>You have to be logged in to view this page</h1>

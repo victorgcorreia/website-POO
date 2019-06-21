@@ -1,6 +1,22 @@
 <%= stylesheet_link_tag 'pages' %>
 <% if current_user && current_user.role == 2 %>
     <h1>Homepage for Owners</h1>
+    <% @pets.each do |pet| %>
+        <li class="li_home">
+            <%= link_to image_tag(pet.image, style: 'width:400px'), pet_path(pet) %>
+            <h3 class="h3_home"><%= pet.name %></h3>
+            <p class="p_home">
+              <td><%= pet.details %></td></br></br>
+              <td><%= pet.birthdate.to_date %></td></br>
+              <td>Dono: <%= pet.owner.name %></br>
+              <td>e-mail: <%= pet.owner.user.email %> | phone: <%= pet.owner.tel %></td></br>
+              <td><%= link_to 'Show', pet %></td>
+              <% if current_user && current_user == pet.owner.user %>
+                  <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+                  <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+        </li>
+    <% end %></p>
 <% elsif current_user && current_user.role == 3 %>
     <h1>Homepage for Volunteers</h1>
 

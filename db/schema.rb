@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_044801) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
+    t.string "name"
     t.integer "role"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
